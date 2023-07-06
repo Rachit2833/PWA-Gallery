@@ -1,0 +1,5 @@
+let a = document.createElement("p")
+let b = document.createTextNode("this is class")
+a.appendChild(b)
+console.log(a)
+console.log(b)

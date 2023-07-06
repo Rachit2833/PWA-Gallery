@@ -1,0 +1,27 @@
+.glowing{
+    width: 50vh;
+    height: 50vh;
+    background-color: black;
+    margin: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+   
+
+}
+.glowing::after {
+    content: "";
+    position:absolute;
+    height: 90%;
+    width: 90%;
+    background: linear-gradient(red ,blue);
+
+  }
+
+
+
+
+
+  c

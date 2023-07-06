@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cool CSS Animation</title>
+    <style>
+      /* Style for the animated text */
+         body{
+            width: 100vh;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+         }
+      
+      
+      
+      .text {
+        font-size: 50px;
+        font-weight: bold;
+        color: white;/*#3498db*/
+        animation: neon 1.5s ease-in-out infinite alternate;
+      }
+      /* Keyframes for the animation */
+      @keyframes neon {
+        0% {
+          text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #3498db,
+           0 0 70px #3498db, 0 0 80px #3498db, 0 0 100px #3498db, 0 0 150px #3498db;
+        }
+        100% {
+          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #3498db, 
+           0 0 35px #3498db, 0 0 40px #3498db, 0 0 50px #3498db, 0 0 75px #3498db;
+        }
+      }
+      .text::before{
+        position: absolute;
+        content: "Cool CSS Animation";
+        width: 350px;
+        animation: rachit 5s linear infinite;
+        white-space: nowrap;
+        color: aqua;
+        overflow: hidden;
+      }
+      @keyframes rachit {
+
+0%,
+10%,
+100% {
+    width: 0px;
+}
+
+70%,
+90% {
+    width: 100%;
+}
+}
+
+
+
+
+
+
+
+    </style>
+  </head>
+  <body>
+    <!-- The animated text -->
+    <h1 class="text">Cool CSS Animation</h1>
+  </body>
+</html>
+
+
+

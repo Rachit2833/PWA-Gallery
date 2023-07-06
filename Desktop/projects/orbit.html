@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+      body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: black;
+      }  
+      .circle{
+        height: 20em;
+        width: 20em;
+        border-radius: 50%;
+        border-style: solid;
+        border-color: red;
+        border-width: 0.1em 0.1em 0 0;
+        animation: orbit 6s linear infinite;
+       
+
+      }
+      .circle2{
+        height: 18em;
+        width: 18em;
+        position: absolute;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+      .button{
+        height: 12em;
+        width: 12em;
+        border-radius: 50%;
+        font-size: 20px;
+        background-color: rgb(10, 0, 0);
+        border: 2px solid black;
+       
+      }
+      .text{
+        text-decoration: none;
+        color: aqua;
+      }
+
+      @keyframes orbit{
+        to{
+            transform: rotate(360deg);
+        }
+      }
+    </style>
+<div class="circle"></div>
+<div class="circle2"><button class="button"><a class="text" href="https://youtu.be/DKJIgOSlDKk">Youtube</a></button></div>
+
+</body>
+</html>

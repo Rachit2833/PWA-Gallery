@@ -1,0 +1,34 @@
+body{
+    background-color: black;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.a,.b,.c{
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid aqua;
+   
+    
+   
+}
+.c{
+    position: absolute;
+}
+.c{
+    position: absolute;
+    top: 35vh;
+}
+.r{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,11 @@
+.a{
+    height: 300px;
+    width: 300px;
+ background-color: rgb(108, 214, 108);
+}
+.body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

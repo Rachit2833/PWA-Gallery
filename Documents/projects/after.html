@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+        }
+        .after::after{
+            content: "";
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+
+        h1 {
+            position: relative;
+            
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="after">Content with Overlay</h1>
+    </div>
+</body>
+</html>
+.p::after {
+    content: "StockInfo.com";
+  background-color: rgb(11, 45, 119);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+   top: 0;
+   left: 0;
+   animation: type 5s linear 2;
+}
+@keyframes type{
+    0%{
+        width: 0%;
+    }
+    10%{
+        width: 10%;
+    }
+    50%{
+        width: 50%;
+    }
+    70%{
+        width: 70%;
+    }
+    100%{
+        width: 100%;
+    }
+}

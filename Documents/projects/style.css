@@ -1,0 +1,50 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #23242a;
+    padding: 8px;
+}
+.s{
+    background-color: black;
+    color: aliceblue;
+    width: 50vh;
+    height: 60vh;
+    padding: 10vh 10vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+input{
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    padding: 10px 10px;
+    background-color: transparent;
+    border: 2px inset white;
+    border-top: 0ch;
+    border-left: 0ch;
+    border-right: 0ch;
+    transition: 0.5s;
+    z-index: 10;
+    
+}
+input[type="submit"]{
+    background-color: aqua;
+    border: 2px solid gold;
+    border-radius: 20px;
+    font-size: 50px;
+
+}
+.s::after{
+    content: " ";
+    width: 90%;
+    height: 90%;
+    background: linear-gradient(red blue);
+    position: absolute;
+
+}
+    

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .p::before {
+            content: attr(data-text);
+            color: black;
+            position: absolute;
+            width: 350px;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: animate 8s infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        body {
+            background-image: linear-gradient(to top, #5b3888, #0058a2, #006fa5, #008095, #008e80, #009b7f, #00a779, #13b370, #16c592, #28d8b3, #42e9d2, #5ffbf1);
+        }
+
+        .a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .p {
+            font-size: 4em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(123, 232, 214);
+            background-color: rgb(123, 232, 214);
+        }
+
+        .block-1,
+        .block-2,
+        .block-3 {
+            width: 30vh;
+            height: 10vh;
+            background-color: white;
+            position: relative;
+            top: -600px;
+            margin: 10px;
+            border-radius: 30vh;
+            background-color: transparent;
+            border: 3px solid whitesmoke;
+
+        }
+
+        .c {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav {
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            background-color: white;
+
+        }
+
+        .logo {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            height: 50px;
+            margin-left: 10px;
+
+        }
+
+        .About,
+        .Info,
+        .Help,
+        .Contact {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            height: 50px;
+            margin-left: 10px;
+            position: relative;
+            left: 300px;
+            margin-left: 60px;
+            padding-left: 60px;
+        }
+
+        .nav {
+            display: flex;
+        }
+
+        .p {
+            font-size: 6em;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .ques {
+            color: white;
+            font-size: 4em;
+            position: relative;
+            bottom: 500px;
+            padding: 10px;
+        }
+
+        .para,
+        p {
+            color: white;
+            font-size: 2em;
+            position: relative;
+            bottom: 490px;
+            padding: 10px;
+        }
+
+        .para {
+            bottom: 500px;
+        }
+
+        .p {
+            bottom: 300px;
+        }
+
+        .main {
+            background-color: rgb(123, 232, 214);
+        }
+    </style>
+    <div class="main">
+        <div class="nav">
+            <div class="logo">StockInfo</div>
+            <div class="About">About</div>
+            <div class="Help">Help</div>
+            <div class="Contact">Contact</div>
+            <div class="Info">Info</div>
+        </div>
+        <div class="a">
+            <p data-text="StockInfo.com" class="p">StockInfo.com</p>
+        </div>
+        <div class="c">
+            <div class="block-1"></div>
+            <div class="block-2"></div>
+            <div class="block-3"></div>
+        </div>
+    </div>
+    <div class="ques">What Is StockInfo?</div>
+    <p class="para">StockInfo is a comprehensive financial information service provided by our trading firm. It aims to
+        empower individuals by offering them valuable insights and educational resources related to the stock market.
+
+        StockInfo offers a range of services and features to help people make informed investment decisions. Here's an
+        overview of what StockInfo entails:
+
+    <p>1. Stock Recommendations: StockInfo provides carefully researched stock recommendations based on fundamental and
+        technical analysis. These recommendations highlight stocks that are expected to perform well in the market,
+        based on factors such as company financials, industry trends, and market conditions.</p>
+
+    <p> 2. Market Insights: StockInfo offers regular market updates, analysis, and commentary to keep investors informed
+        about the latest trends and developments. This includes information on sectors, economic indicators, and
+        geopolitical events that may impact the stock market.</p>
+    <p>3. Education and Courses: StockInfo offers educational courses and resources designed to enhance investors'
+        understanding of the stock market. These courses cover a wide range of topics, such as fundamental analysis,
+        technical analysis, risk management, and investment strategies. The aim is to empower individuals with the
+        knowledge and skills needed to make sound investment decisions.</p>
+    <p>4. Research Tools: StockInfo provides access to a suite of research tools and financial data, including
+        historical price charts, company financial statements, analyst reports, and more. These tools help investors
+        conduct in-depth analysis and research on stocks of interest.</p>
+    <p>5. Community and Support: StockInfo fosters a community of investors, where members can engage in discussions,
+        share insights, and learn from one another. Additionally, our support team is available to answer any questions
+        or provide assistance regarding the StockInfo platform or general investment queries.</p>
+
+    <p>Overall, StockInfo serves as a reliable source of information and education for individuals looking to navigate
+        the stock market. By combining expert analysis, educational resources, and a supportive community, we aim to
+        equip investors with the tools and knowledge necessary to make informed investment decisions.</p>
+    </p>
+</body>
+
+</html>

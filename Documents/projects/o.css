@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #111;
+}
+h1{
+    position: relative;
+    font-size: 6em;
+    color: #222;
+}
+.a::before{
+    content: attr(data-text);
+    color: aqua;
+    position: absolute;
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: animate 8s infinite;
+}
+@keyframes animate{
+    0%,10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
+}
+
+
+
+
+
+body {
+            background-image: linear-gradient(to top, #5b3888, #0058a2, #006fa5, #008095, #008e80, #009b7f, #00a779, #13b370, #16c592, #28d8b3, #42e9d2, #5ffbf1);
+        }
+
+        .a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .p {
+            font-size: 4em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+        }
+
+        .block-1,
+        .block-2,
+        .block-3 {
+            width: 30vh;
+            height: 10vh;
+            background-color: white;
+            position: relative;
+            top: -600px;
+            margin: 10px;
+            border-radius: 30vh;
+            background-color: transparent;
+            border: 3px solid whitesmoke;
+
+        }
+
+        .c {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav {
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            background-color: white;
+
+        }
+
+        .logo {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            height: 50px;
+            margin-left: 10px;
+
+        }
+
+        .About,
+        .Info,
+        .Help,
+        .Contact {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            height: 50px;
+            margin-left: 10px;
+            position: relative;
+            left: 300px;
+            margin-left: 60px;
+            padding-left: 60px;
+        }
+
+        .nav {
+            display: flex;
+        }
+
+        .p {
+            font-size: 6em;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .ques {
+            color: white;
+            font-size: 4em;
+            position: relative;
+            bottom: 500px;
+            padding: 10px;
+        }
+
+        .para,
+        p {
+            color: white;
+            font-size: 2em;
+            position: relative;
+            bottom: 490px;
+            padding: 10px;
+        }
+
+        .para {
+            bottom: 500px;
+        }
+
+        .p {
+            bottom: 300px;
+        }

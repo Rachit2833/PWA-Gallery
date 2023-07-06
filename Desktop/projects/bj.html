@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>body {
+    background-color: rgb(20, 20, 20);
+    height: 170vh;
+    width: 170vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.a {
+
+    width: 916px;
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+
+}
+
+.card {
+    background-color: rgb(255, 255, 255, 0.1);
+    height: 260px;
+    width: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    border-radius: 25px;
+    color: white;
+    font-size: 2rem;
+ 
+}
+
+h1 {
+
+    text-shadow: 4px 4px 8px white;
+}
+
+.card::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: radial-gradient(500px circle at var(--mouse-x) var(--mouse-y),
+            white, transparent 40%);
+    border-radius: inherit;
+    z-index: 2;
+    top: 0;
+    left: 0;
+
+}</style>
+<body>
+    <section class="a">
+    <div class="card"><h1 class="text">HTML</h1></div>
+    <div class="card"><h1 class="text">CSS</h1></div>
+    <div class="card"><h1 class="text">JavaScript</h1></div>
+    <div class="card"><h1 class="text">React</h1></div>
+    <div class="card"><h1 class="text">JNode</h1></div>
+    <div class="card"><h1 class="text">Web</h1></div>
+    <script>
+        const handleOnMouseMove = e => {
+            const rect = e.target.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            e.target.style.setProperty("--mouse-x", `${x}px`);
+            e.target.style.setProperty("--mouse-y", `${y}px`);
+        }
+        for (const card of document.querySelectorAll(".card")) {
+            card.onmousemove = e => handleOnMouseMove(e);
+        }
+    </script>
+
+</body>
+</html>

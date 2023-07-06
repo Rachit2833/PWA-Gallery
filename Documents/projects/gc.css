@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.a {
+    background-color:#222;
+    color: azure;
+    width: 60vh;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    position: relative;
+    font-size: 3em;
+}
+
+h1::before {
+    content: "@ CSS ONLY $";
+    width: 350px;
+    position: absolute;
+    color: aqua;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: rachit 8s infinite;
+    filter: drop-shadow(0 0 20px aqua)drop-shadow(0 0 50px aqua);
+}
+
+@keyframes rachit {
+
+    0%,
+    10%,
+    100% {
+        width: 0px;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+.a::after {
+    content: "";
+    position: absolute;
+    height: 95%;
+    width: 95%;
+    background: white;
+    z-index: -1;
+    filter: blur(40px);
+}   
+.a:hover::after{
+    width: 102%;
+    height: 102%;
+}
+
+
+/*.glowing{
+    width: 50vh;
+    height: 50vh;
+    background-color: black;
+    margin: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+   
+
+}
+.glowing::after {
+    content: "";
+    position:absolute;
+    height: 90%;
+    width: 90%;
+    background: linear-gradient(red ,blue);
+
+  }
+
+*/

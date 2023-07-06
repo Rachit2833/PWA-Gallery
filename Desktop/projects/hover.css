@@ -1,0 +1,27 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.card{
+    height: 1000px;
+    width: 800px;
+    border: 5px solid red;
+}
+.image{
+height: 100%;
+width: 100%;
+}
+@keyframes pulse{
+    from,to{
+        scale: 1;
+    }
+    50%{
+        scale: 1.08;
+    }
+}
+#card:hover > img{
+    animation: pulse 1s ease-in-out;
+}

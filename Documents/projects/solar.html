@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>body{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    
+    
+    }
+    .sun{
+        height: 200px;
+        width: 200px;
+        background-color: orange;
+        border-radius: 50%;
+        animation: earth 20s linear infinite;
+    }
+    .sun::after{
+        content: '';
+        height: 100px;
+        width: 100px;
+        background-color: aqua;
+        position: absolute;
+        left: 50px;
+      top: 370px;
+      border-radius: 50%;
+    }
+    @keyframes earth{
+       to{
+        transform: rotate(360deg);
+       }
+     }</style>
+</head>
+<body>
+    <div class="sun"></div>
+    <div class="earth"></div>
+    <div class="moon"></div>
+</body>
+
+</html>
