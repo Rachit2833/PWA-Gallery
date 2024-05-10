@@ -1,14 +1,6 @@
 var CACHE_STATIC_NAME = 'static-v6.1';
 var CACHE_DYNAMIC_NAME = 'dynamic-v1';
 
-const Key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh3aHlxeGt0Z3ZpbWd6bWxoZWNnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDQ3ODYxMjYsImV4cCI6MjAyMDM2MjEyNn0.kzgiwwCbJj2Jx9xyoRoTr8mIcGUBRrFu_WFbzZf5AKA";
-const Table = "Rewinds";
-const Table2 = "Images";
-const Table3 ="Favourites"
-const supabaseUrl = 'https://hwhyqxktgvimgzmlhecg.supabase.co';
-const url = `${supabaseUrl}/rest/v1/${Table2}?apikey=${Key}`;
-const url2 = `${supabaseUrl}/rest/v1/${Table}?apikey=${Key}`;
-const url3 = `${supabaseUrl}/rest/v1/${Table3}?apikey=${Key}`;
 
 
 self.addEventListener('install', event => {
