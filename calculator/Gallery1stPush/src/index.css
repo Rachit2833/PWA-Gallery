@@ -1,0 +1,83 @@
+
+
+#root{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.Navbar{
+  height: 100%;
+  width: 20%;
+
+  overflow: hidden;
+ 
+}
+.Body{
+  position: absolute;
+  top: 5%;
+  left: 20%;
+
+  display: flex;
+    flex-wrap: wrap;
+ 
+
+}
+.heading-home{
+ margin-bottom: 6%;
+}
+.button-Add{
+
+  position: fixed;
+  top: 80%;
+  right: 5%;
+  z-index: 10;
+}
+.box-check{
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  bottom: 0;
+}
+.Select-button{
+  position: fixed;
+   bottom: 100px;
+  right: 30px;
+}
+.loaderDiv{
+   position: fixed;
+   top: 50%;
+   left: 50%;
+}
+.multibutton{
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+}
+.centerImage-private{
+  position: fixed;
+  bottom: 40%;
+  left: 45%;
+}
+.NewImageLogo{
+  
+   position: relative;
+   top: 50px;
+   padding: 20px;
+}
+.hhh{
+color: red;
+background-color: red;
+border: 5px solid red;
+}
+.Main-Button{
+  position: relative;
+  bottom: 150px;
+}
+.multibutton{
+  display: flex;
+
+
+}
+.arc{
+  margin-left: 10px;
+}
