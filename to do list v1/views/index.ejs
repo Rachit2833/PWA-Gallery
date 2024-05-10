@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheet/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+           <div class="head"> <h1> <%= Day %></h1>
+            <p class="p" >It's a <%= Type %></p></div>
+            <div class="main">
+                <%for(let j=0;j<newItems.length;j++){%>
+
+                    <div class="i_tems">
+                        <input class="checkbox" type="checkbox"><p class="para"><%= newItems[j]%></p>
+                    </div>
+                   
+                <%}%>
+                
+            
+        
+            </div>
+        </div>
+    </div>
+    <div class="forum">
+        <form action="/" method="post">
+            <div class="input"> <input name="ni" type="text" class="inp" placeholder="Add new task"></div>
+           <div class="submi"> <button type="submit">+</button></div>
+        </form>
+    </div>
+
+</body>
+</html>
+
+
+
+
