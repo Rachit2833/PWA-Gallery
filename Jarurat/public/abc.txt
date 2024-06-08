@@ -1,0 +1,14 @@
+Hii, Out of three observation made from the site audit i preddered working
+on the PWA (Progessive Web App Feature ) for i beliuve it is one of those 
+feature which opens the great new possibility in the domain of web. It 
+introduces web with some of the important native app feature, also its 
+backed by google and is under continious developement. Most of the popular 
+apps like whatsapp web , youtube blog sites work on this as it retains the 
+user more than normal web apps.
+
+After Correctly linking the JantaSW.js on side of the search bar you will get 
+a install sign which will install the site as a PWA on your mobile or desktop
+
+More feature can be built on top of this concept once recieving the 
+complete source code
+
