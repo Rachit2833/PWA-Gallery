@@ -1,0 +1,85 @@
+.todo-container {
+
+  border-radius: 10px;
+
+ 
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: white;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.input-container input {
+  width: 70%;
+  padding: 0.5rem;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.input-container button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.input-container button:hover {
+  background-color: #45a049;
+}
+
+.todo-list {
+  list-style: none;
+}
+
+.todo-item {
+  background-color: #f9f9f9;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #eeeeee;
+}
+
+.todo-item span {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.delete-btn {
+  background-color: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #ff1a1a;
+}
+.react-calendar{
+  width: 100%;
+}
+.cal  {
+
+  border-radius: 15px;
+  font-size: 1rem;
+  font-weight: 700;
+
+}
+

@@ -1,0 +1,76 @@
+.calendar {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ccc;
+}
+
+.month-year {
+  font-weight: bold;
+}
+
+button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #007bff;
+}
+
+.day-names, .days {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.day-name, .day {
+  width: 14.28%;
+  padding: 10px 0;
+  text-align: center;
+  border: 1px solid #f4f4f4;
+  box-sizing: border-box;
+}
+
+.day:hover {
+  background-color: #f4f4f4;
+}
+
+.empty {
+  background-color: transparent;
+  border: none;
+}
+.hov:hover{
+      background-color: #36BA98;
+}
+.selected{
+  background-color: #667BC6;
+  color: white;
+}
+.yearlist:hover{
+  background-color: royalblue;
+  color: white;
+
+}
+.yearlist{
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+.yearlistSelected{
+  background-color: royalblue;
+  color: white;
+
+
+}

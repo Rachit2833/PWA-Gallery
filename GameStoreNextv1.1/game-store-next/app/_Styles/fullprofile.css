@@ -1,0 +1,107 @@
+.profile-container {
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.banner {
+  width: 100%;
+  height: 30rem;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
+}
+
+.profile-header {
+  position: relative;
+  margin-top:  0px; 
+  padding-top: 80px;
+
+}
+
+.profile-header img {
+  border-radius: 50%;
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+  border: 1rem solid white;
+  position: absolute;
+  top: -80px; /* Adjust this value to move the image upwards */
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 10;
+}
+
+.profile-header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #333;
+  margin-top: 70px; /* Adjust this value to create space between the avatar and the title */
+}
+
+.profile-header h2 {
+  margin: 5px 0;
+  font-size: 18px;
+  color: #777;
+}
+
+.profile-header p {
+  margin: 3px 0;
+  color: #555;
+}
+
+.profile-section {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.profile-section h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: #007BFF;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+.profile-section p,
+.profile-section ul {
+  margin: 0;
+  padding: 0;
+  color: #555;
+}
+
+.profile-section ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.profile-section ul li {
+  margin-bottom: 5px;
+}
+
+.profile-section ul li::before {
+  content: "•";
+  color: #007BFF;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.contact-info a {
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: 700;
+}

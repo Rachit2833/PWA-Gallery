@@ -1,0 +1,123 @@
+.profile-card {
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.5);
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  min-height: 20rem;
+  transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: scale(1.1);
+}
+
+.profile-card h2 {
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.profile-card .title {
+  padding: 1rem;
+  text-align: right;
+  color: green;
+  font-weight: bold;
+  font-size: 12px;
+}
+li{
+  color: green;
+}
+
+.profile-card .desc {
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+}
+
+.profile-card .actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+}
+
+.profile-card svg {
+  width: 85px;
+  height: 85px;
+  margin: 0 auto;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  border-radius: 50%;
+  border: 6px solid white;
+  top: 25%;
+  left: 100%;
+  transform: translate(-50%, -60%);
+  z-index: 10;
+}
+
+.card-text {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.title-total {
+  padding: 2.5em 1.5em 1.5em 1.5em;
+}
+
+.portada {
+  min-width: 1rem;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-size: cover;
+  position: relative;
+}
+
+
+
+
+
+/* responsive.css */
+
+/* Default styles for larger screens */
+.pro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 4rem 2rem;
+  border-top: 2px solid #313E81;
+  padding: 2rem;
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+  .pro-grid {
+    grid-template-columns: 1fr;
+    margin: 2rem 1rem;
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 480px) {
+  .pro-grid {
+    grid-template-columns: 1fr;
+    margin: 1rem 0.5rem;
+    padding: 0.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
