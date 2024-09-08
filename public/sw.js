@@ -1,85 +1,102 @@
-var CACHE_STATIC_NAME = 'static-v6.1';
-var CACHE_DYNAMIC_NAME = 'dynamic-v1';
+const CACHE_STATIC_NAME = "static-v6.1";
+const CACHE_DYNAMIC_NAME = "dynamic-v1";
+const CACHE_FILES = [
+  "/",
+  "/index.html",
+  "/manifest.json",
+  "/src/main.jsx",
+  "/src/Context/Helper.jsx",
+  "/src/index.css",
+  "/src/favourite/FavouriteLayout.jsx",
+  "/src/Pages/Home.jsx",
+  "/src/AppLayout.jsx",
+  "/src/Pages/AlbumPage.jsx",
+  "/src/Pages/ProtectedRoute.jsx",
+  "/src/Pages/Rewind.jsx",
+  "/src/Rewind/RewindCard.jsx",
+  "/src/Pages/Camera.jsx",
+  "/src/Rewind/RewindCard.css",
+  "/src/favourite/Favourite.css",
+  "/src/PrivateVault/Password.jsx",
+  "/src/PrivateVault/Privatepage.jsx",
+  "/src/PrivateVault/Form.css",
+  "/src/Authentication/Login.jsx",
+  "/src/Authentication/Login.css",
+];
 
-
-
-self.addEventListener('install', event => {
-    event.waitUntil(
-        caches.keys().then(keys => {
-            return Promise.all(keys
-                .filter(key => key !== CACHE_STATIC_NAME && key !== CACHE_DYNAMIC_NAME)
-                .map(key => caches.delete(key))
-            );
-        })
-    );
-
-          caches.open(CACHE_STATIC_NAME)
-           .then((cache)=>{
-            console.log("[Serwicce Worker] Precaching The Shell")
-            cache.addAll([
-            "/",
-            "src/main.jsx",
-            "src/Context/Helper.jsx",
-            "manifest.json",
-            "index.html",
-            "index.js",
-            "src/index.css",
-            "src/favourite/FavouriteLayout.jsx",
-            "src/Pages/Home.jsx",
-            "src/AppLayout.jsx","src/Pages/AlbumPage.jsx","src/Pages/ProtectedRoute.jsx","src/Pages/Rewind.jsx","src/Rewind/RewindCard.jsx",  "src/Pages/Camera.jsx","src/Rewind/RewindCard.css","src/favourite/Favourite.css","src/PrivateVault/Password.jsx","src/PrivateVault/Privatepage.jsx","src/PrivateVault/Form.css",
-             "src/Authentication/Login.jsx",
-            "src/Authentication/Login.css",
-
-      
-            ])
-           })
-        })
-        
-
-self.addEventListener('fetch', event => {
-    event.respondWith(
-        fetch(event.request)
-            .then(networkResponse => {
-                // Clone the network response before caching it
-                const clonedResponse = networkResponse.clone();
-
-                // Open the dynamic cache and store the cloned response
-                caches.open(CACHE_DYNAMIC_NAME)
-                    .then(cache => {
-                        cache.put(event.request, clonedResponse);
-                    });
-
-                return networkResponse;
-            })
-            .catch(() => {
-                // If network request fails, try to get the response from the cache
-                return caches.match(event.request);
-            })
-    );
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches
+      .open(CACHE_STATIC_NAME)
+      .then((cache) => {
+        console.log("[Service Worker] Precaching The Shell");
+        return cache.addAll(CACHE_FILES);
+      })
+      .then(() => {
+        return caches.keys();
+      })
+      .then((keys) => {
+        return Promise.all(
+          keys
+            .filter(
+              (key) => key !== CACHE_STATIC_NAME && key !== CACHE_DYNAMIC_NAME
+            )
+            .map((key) => caches.delete(key))
+        );
+      })
+      .catch((error) => {
+        console.error("[Service Worker] Cache installation failed:", error);
+      })
+  );
 });
 
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      // Return cached response if available
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+      // Fetch from network if not in cache
+      return fetch(event.request)
+        .then((networkResponse) => {
+          // Clone and cache the network response
+          const clonedResponse = networkResponse.clone();
+          caches.open(CACHE_DYNAMIC_NAME).then((cache) => {
+            cache.put(event.request, clonedResponse);
+          });
+          return networkResponse;
+        })
+        .catch(() => {
+          // Optional: return a fallback page for offline scenarios
+          return caches.match("/offline.html"); // Ensure you have an offline.html in your cache
+        });
+    })
+  );
+});
 
-
-
-
-// self.addEventListener('fetch', event => {
-//     event.respondWith(
-//         event.respondWith(
-//       caches.match(event.request)
-//         .then(function (res) {
-//           if (res) {
-//             return res;
-//           } else {
-//             return fetch(event.request) .then(function (res) {
-//                 return caches.open(CACHE_DYNAMIC_NAME)
-//                   .then(function (cache) {
-//                     cache.put(event.request.url, res.clone());
-//                     return res;
-//                   });
-//               });
-//           }
-//         }
-//         )));
-   
-// });
+// Optional: Clean up old caches
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches
+      .keys()
+      .then((keys) => {
+        return Promise.all(
+          keys
+            .filter(
+              (key) => key !== CACHE_STATIC_NAME && key !== CACHE_DYNAMIC_NAME
+            )
+            .map((key) => caches.delete(key))
+        );
+      })
+      .then(() => {
+        console.log(
+          "[Service Worker] Activating new service worker and clearing old caches"
+        );
+      })
+      .catch((error) => {
+        console.error("[Service Worker] Cache cleanup failed:", error);
+      })
+  );
+});
 
