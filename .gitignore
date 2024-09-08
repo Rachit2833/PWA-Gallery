@@ -22,7 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-Supabase.js
+
 ../../Desktop/
 ../../Documents/
 ../../Downloads/
