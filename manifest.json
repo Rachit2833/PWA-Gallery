@@ -1,6 +1,7 @@
 {
-      "start_url": "/login",
+  "start_url": "/login",
   "scope": ".",
+  "name": "pwa.gallery",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#fff",
@@ -8,22 +9,37 @@
   "description": "A simple Instagram Clone, implementing a lot of PWA love.",
   "dir": "ltr",
   "lang": "en-US",
-    "icons": [
-        {
-            "src": "/Icons/icon-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "maskable"
-        },
-        {
-            "src": "/Icons/icon-384x384.png",
-            "sizes": "384x384",
-            "type": "image/png"
-        },
-        {
-            "src": "/Icons/icon-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
+  "icons": [
+    {
+      "src": "/Icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/Icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/Icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/640.jpg",
+      "sizes": "640x680",
+      "type": "image/png",
+      "label": "Main Screen"
+    },
+    {
+      "src": "/2600.jpg",
+      "sizes": "3200x2080",
+      "type": "image/png",
+      "label": "Feature View",
+      "form_factor": "wide" 
+    }
+  ]
 }
