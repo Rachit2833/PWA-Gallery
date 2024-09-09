@@ -2,7 +2,7 @@ import supabase from "../../Supabase";
 
 export async function deleteCard(data){
 var parsedData =  JSON.parse(data)
-console.log(parsedData.id);
+
 try{
 const { error } = await supabase
   .from('Images')

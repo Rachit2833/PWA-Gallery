@@ -2,7 +2,7 @@ import supabase from "../../Supabase";
 
 export async function loginUser(Data) {
   try {
-    console.log(Data);
+
     let { data, error } = await supabase.auth.signInWithPassword({
       email: Data.Email,
       password: Data.Password,

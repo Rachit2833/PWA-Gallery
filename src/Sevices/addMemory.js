@@ -10,7 +10,9 @@ export async function addMemory(Newdata) {
     .insert([
       {
         Location: Newdata.Location,
-        Image: `https://hwhyqxktgvimgzmlhecg.supabase.co/storage/v1/object/public/images/${Newdata.Image[0].name}`,
+        Image: `${
+          import.meta.env.VITE_SUPABASE_URL
+        }/storage/v1/object/public/images/${Newdata.Image[0].name}`,
         Description: Newdata.Description,
         Date: new Date(),
       },

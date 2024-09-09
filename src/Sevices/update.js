@@ -2,7 +2,6 @@ import supabase from "../../Supabase";
 
 export async function updateData(newData, id) {
   try {
-    console.log(newData)
     const { data, error } = await supabase
       .from('Rewinds')
       .update({ Image: newData })
