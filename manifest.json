@@ -1,5 +1,5 @@
 {
-  "start_url": "/login",
+  "start_url": "/",
   "scope": ".",
   "name": "pwa.gallery",
   "display": "standalone",
