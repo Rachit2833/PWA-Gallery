@@ -51,26 +51,25 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+  // Only cache GET requests
+  if (event.request.method !== "GET") {
+    return fetch(event.request);
+  }
+
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      // Return cached response if available
       if (cachedResponse) {
         return cachedResponse;
       }
-      // Fetch from network if not in cache
-      return fetch(event.request)
-        .then((networkResponse) => {
-          // Clone and cache the network response
-          const clonedResponse = networkResponse.clone();
-          caches.open(CACHE_DYNAMIC_NAME).then((cache) => {
-            cache.put(event.request, clonedResponse);
-          });
-          return networkResponse;
-        })
-        .catch(() => {
-          // Optional: return a fallback page for offline scenarios
-          return caches.match("/offline.html"); // Ensure you have an offline.html in your cache
+
+      return fetch(event.request).then((networkResponse) => {
+        // Clone the response before caching it
+        const clonedResponse = networkResponse.clone();
+        caches.open(CACHE_DYNAMIC_NAME).then((cache) => {
+          cache.put(event.request, clonedResponse);
         });
+        return networkResponse;
+      });
     })
   );
 });
