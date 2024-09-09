@@ -1,5 +1,5 @@
-const CACHE_STATIC_NAME = "static-v6.1";
-const CACHE_DYNAMIC_NAME = "dynamic-v1";
+const CACHE_STATIC_NAME = "static-v6.2";
+const CACHE_DYNAMIC_NAME = "dynamic-v2";
 const CACHE_FILES = [
   "/",
   "/index.html",

@@ -1,66 +1,87 @@
+import { getSession, loginUser } from '../Sevices/Login';
 import React, { useEffect } from 'react';
 import "./Login.css";
 import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from 'react-query';
-
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import { getSession, loginUser } from '../Sevices/Login';
+
 
 function Login() {
     const queryClient = useQueryClient();
     const navigate = useNavigate();
+    const { handleSubmit, register } = useForm();
 
+    // Check for existing session on component mount
     useEffect(() => {
         const checkSession = async () => {
-            const session = getSession();
-            console.log(session)
-            if (session) {
-                navigate('/');
-                queryClient.invalidateQueries(["Session"])
-                toast.success("Welcome")
+            try {
+                const session = await getSession();
+                console.log("Session result:", session);
+                if (session?.role === "authenticated") {
+                    toast.success("You are already logged in!");
+                    queryClient.invalidateQueries(["Session"]);
+                    navigate('/');
+                }
+            } catch (error) {
+                console.error("Error checking session:", error);
             }
         };
 
-       
-    }, [navigate]);
+        checkSession();
+    }, [navigate, queryClient]);
 
     const { mutate, isLoading } = useMutation({
         mutationFn: (data) => loginUser(data),
-        onSuccess: () => {
+        onSuccess: (response) => {
             queryClient.invalidateQueries(["Session"]);
+            localStorage.setItem('CustomerId', response.user.identities[0].user_id); // Persist session
             navigate("/");
-            toast.success("Login success");
+            toast.success("Login successful");
         },
         onError: (error) => {
             console.error("Login error:", error);
-            toast.error("Invalid Credentials");
+            toast.error("Invalid credentials");
         },
     });
 
-    const { handleSubmit, register } = useForm();
-
     function onSubmit(data) {
-        console.log(data);
         if (data.Password === data.Confirm_Password) {
             mutate(data);
-        } else if (data.Password !== data.Confirm_Password) {
-            toast.error("Credentials do not match");
+        } else {
+            toast.error("Passwords do not match");
         }
     }
 
-    function onError(err) {
-        toast.error("Invalid Credentials");
+    function onError() {
+        toast.error("Invalid credentials");
     }
 
     return (
         <div className='rfc'>
             <form className="form-auth" onSubmit={handleSubmit(onSubmit, onError)}>
                 <span className="signup-auth">Sign Up</span>
-                <input type="email" placeholder="Email address" className="form--input-auth" {...register("Email", { required: "This field Is required" })}></input>
-                <input type="password" placeholder="Password" className="form--input-auth" {...register("Password", { required: "This field iS required" })}></input>
-                <input type="password" placeholder="Confirm password" className="form--input-auth" {...register("Confirm_Password", { required: "This field iS required" })}></input>
-                <button>Submit</button>
+                <input
+                    type="email"
+                    placeholder="Email address"
+                    className="form--input-auth"
+                    {...register("Email", { required: "This field is required" })}
+                />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    className="form--input-auth"
+                    {...register("Password", { required: "This field is required" })}
+                />
+                <input
+                    type="password"
+                    placeholder="Confirm password"
+                    className="form--input-auth"
+                    {...register("Confirm_Password", { required: "This field is required" })}
+                />
+                <button type="submit" disabled={isLoading}>
+                    {isLoading ? "Submitting..." : "Submit"}
+                </button>
             </form>
         </div>
     );
