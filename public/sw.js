@@ -24,78 +24,58 @@ const CACHE_FILES = [
   "/src/Authentication/Login.css",
 ];
 
+// Install event: caching all necessary files
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches
-      .open(CACHE_STATIC_NAME)
-      .then((cache) => {
-        console.log("[Service Worker] Precaching The Shell");
-        return cache.addAll(CACHE_FILES);
-      })
-      .then(() => {
-        return caches.keys();
-      })
-      .then((keys) => {
-        return Promise.all(
-          keys
-            .filter(
-              (key) => key !== CACHE_STATIC_NAME && key !== CACHE_DYNAMIC_NAME
-            )
-            .map((key) => caches.delete(key))
-        );
-      })
-      .catch((error) => {
-        console.error("[Service Worker] Cache installation failed:", error);
-      })
-  );
-});
-
-self.addEventListener("fetch", (event) => {
-  // Only cache GET requests
-  if (event.request.method !== "GET") {
-    return fetch(event.request);
-  }
-
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-
-      return fetch(event.request).then((networkResponse) => {
-        // Clone the response before caching it
-        const clonedResponse = networkResponse.clone();
-        caches.open(CACHE_DYNAMIC_NAME).then((cache) => {
-          cache.put(event.request, clonedResponse);
-        });
-        return networkResponse;
-      });
+    caches.open(CACHE_STATIC_NAME).then((cache) => {
+      console.log("[Service Worker] Precaching the shell");
+      return cache.addAll(CACHE_FILES);
     })
   );
 });
 
-// Optional: Clean up old caches
+// Activate event: cleanup old caches
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches
-      .keys()
-      .then((keys) => {
-        return Promise.all(
-          keys
-            .filter(
-              (key) => key !== CACHE_STATIC_NAME && key !== CACHE_DYNAMIC_NAME
-            )
-            .map((key) => caches.delete(key))
-        );
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys
+          .filter(
+            (key) => key !== CACHE_STATIC_NAME && key !== CACHE_DYNAMIC_NAME
+          )
+          .map((key) => caches.delete(key))
+      );
+    })
+  );
+  console.log("[Service Worker] Activated");
+});
+
+// Fetch event: network first, cache fallback
+self.addEventListener("fetch", (event) => {
+  // Only cache GET requests
+  if (event.request.method !== "GET") {
+    return;
+  }
+
+  event.respondWith(
+    fetch(event.request)
+      .then((response) => {
+        // Clone the response and store it in the dynamic cache
+        const clonedResponse = response.clone();
+        caches.open(CACHE_DYNAMIC_NAME).then((cache) => {
+          cache.put(event.request, clonedResponse);
+        });
+        return response;
       })
-      .then(() => {
-        console.log(
-          "[Service Worker] Activating new service worker and clearing old caches"
-        );
-      })
-      .catch((error) => {
-        console.error("[Service Worker] Cache cleanup failed:", error);
+      .catch(() => {
+        // If network request fails, attempt to serve from cache
+        return caches.match(event.request).then((cachedResponse) => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          // Optional: return a fallback page for offline scenarios
+          return caches.match("/offline.html");
+        });
       })
   );
 });
-
