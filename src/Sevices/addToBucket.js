@@ -20,27 +20,35 @@ export async function uploadFile(file,id) {
 
 
 
+
+
 export async function uploadFileFromDocuments(file) {
   console.log(file.name);
   let uniqueFilename;
   if (file.name.split(".").length < 2) {
-
     uniqueFilename = `${file.name}.png`;
   } else {
     uniqueFilename = file.name;
   }
 
-  const { data, error } = await supabase.storage
-    .from("images")
-    .upload(uniqueFilename, file, {
-      cacheControl: "3600",
-      upsert: false,
-    });
+  try {
+    const { data, error } = await supabase.storage
+      .from("images")
+      .upload(uniqueFilename, file, {
+        cacheControl: "3600",
+        upsert: false,
+      });
 
-  if (error) {
-    console.error("Error uploading file:", error);
-    // Handle error as needed
-  } else {
-    // Handle success
+    if (error) {
+      console.error("Error uploading file:", error);
+      return { success: false, error: error.message };
+    } else {
+      console.log("Upload successful:", data);
+      // Assuming you want to return some useful data
+      return { success: true, data: data };
+    }
+  } catch (error) {
+    console.error("Unexpected error:", error);
+    return { success: false, error: error.message };
   }
 }

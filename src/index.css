@@ -17,7 +17,8 @@
   top: 5%;
   left: 20%;
 
-  display: flex;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
     flex-wrap: wrap;
  
 

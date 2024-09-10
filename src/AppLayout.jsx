@@ -7,8 +7,9 @@ function AppLayot() {
             <div className="Navbar">
                 <Navbar />
             </div>
-
+           
             <div className="Body">
+                
                 <Outlet />
             </div>
         </>

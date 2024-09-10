@@ -15,6 +15,7 @@ function Camera() {
     const [isClicked, setIsClicked] = useState(false);
     const videoRef = useRef();
     const canvasRef = useRef();
+    
     const [facingMode, setFacingMode] = useState('environment'); // Default to back camera
 
 
