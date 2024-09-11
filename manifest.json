@@ -1,7 +1,9 @@
 {
-  "start_url": "/",
-  "scope": ".",
   "name": "pwa.gallery",
+  "short_name": "Gallery",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#fff",
@@ -39,7 +41,22 @@
       "sizes": "3200x2080",
       "type": "image/png",
       "label": "Feature View",
-      "form_factor": "wide" 
+      "form_factor": "wide"
     }
-  ]
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "name",
+      "text": "description",
+      "files": [
+        {
+          "name": "file",
+          "accept": ["image/*"]
+        }
+      ]
+    }
+  }
 }
