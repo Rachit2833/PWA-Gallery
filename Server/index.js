@@ -30,7 +30,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Endpoint to handle shared images
-app.post("/share", upload.single("file"), (req, res) => {
+app.post("/share-file-handler", upload.single("file"), (req, res) => {
   // req.body should be available now
   const { name, description } = req.body;
   const file = req.file;
