@@ -134,7 +134,7 @@ self.addEventListener("fetch", (event) => {
               })
         })
         // Return a success response.
-        return Response.redirect("/share", 303);
+        return Response.redirect("/", 303);
       } catch (error) {
         return new Response("Error processing files", {
           headers: { "Content-Type": "text/plain" },
