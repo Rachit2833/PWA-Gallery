@@ -1,4 +1,5 @@
-importScripts("/src/Sevices/idb.js");
+importScripts("../idb.js");
+
 const CACHE_STATIC_NAME = "static-v6.6";
 const CACHE_DYNAMIC_NAME = "dynamic-v2";
 const CACHE_FILES = [
