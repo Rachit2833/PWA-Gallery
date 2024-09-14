@@ -21,6 +21,7 @@ import { useAddToFav } from "../Functions/AddToFav";
 import { useEffect } from "react";
 import { useAddPost } from "../Functions/AddPost";
 import ClipboardImagePaste from "../Home/ClipboardImagePaste";
+import Share from "./Share";
 
 const Key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh3aHlxeGt0Z3ZpbWd6bWxoZWNnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDQ3ODYxMjYsImV4cCI6MjAyMDM2MjEyNn0.kzgiwwCbJj2Jx9xyoRoTr8mIcGUBRrFu_WFbzZf5AKA"
 const Table = "Images"
@@ -92,8 +93,8 @@ function Home() {
                 <Card key={data.id} data={data} />
             ))}
             
+            <Share />
             <ClipboardImagePaste />
-
                     
 
 

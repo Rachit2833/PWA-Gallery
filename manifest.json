@@ -52,10 +52,10 @@
       "title": "name",
       "text": "description",
       "files": [
-        {
-          "name": "file",
-          "accept": ["image/*"]
-        }
+           {
+             "name": "images",
+             "accept": ["image/jpeg", "image/png", "image/webp", "image/gif"]
+           }
       ]
     }
   }

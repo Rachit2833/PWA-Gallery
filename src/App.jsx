@@ -15,6 +15,7 @@ import Login from "./Authentication/Login";
 import ProtectedRoute from "./Pages/ProtectedRoute";
 import Privatepage from "./PrivateVault/Privatepage";
 import Camera from "./Pages/Camera";
+import Share from "./Pages/Share";
 
 
 
@@ -42,6 +43,7 @@ function App() {
                 <Route path="/private" element={<Password />} />
                 <Route path="/Vault" element={<Privatepage />} />
                 <Route path="/Camera" element={<Camera />} />
+
               </Route>
               <Route path="/login" element={<Login />} />
 
