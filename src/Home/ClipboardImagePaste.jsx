@@ -78,12 +78,23 @@ function ClipboardImagePaste() {
    const handleAddCard = async (image, index) => {
       if (image.imageFile && headingText && categoryText) {
          try {
-            const uploadResult = await uploadFileFromDocuments(image.imageFile);
+            let date = new Date();
+            let formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1)
+               .toString()
+               .padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}_${date
+                  .getHours()
+                  .toString()
+                  .padStart(2, "0")}-${date.getMinutes().toString().padStart(2, "0")}-${date
+                     .getSeconds()
+                     .toString()
+                     .padStart(2, "0")}`;
+            let uniqueFilename = `${formattedDate}-${image.imageFile.name}`;
+            const uploadResult = await uploadFileFromDocuments(image.imageFile,uniqueFilename);
             console.log('Upload result:', uploadResult);
 
             if (uploadResult.success) {
                const cardData = {
-                  Image: `https://hwhyqxktgvimgzmlhecg.supabase.co/storage/v1/object/public/images/${image.imageFile.name}`,
+                  Image: `https://hwhyqxktgvimgzmlhecg.supabase.co/storage/v1/object/public/images/${uniqueFilename}`,
                   Description: headingText,
                   Location: categoryText
                };
